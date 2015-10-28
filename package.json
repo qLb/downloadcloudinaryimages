@@ -23,7 +23,7 @@
   },
   "main": "app.js",
   "dependencies": {
-    "request": "~2.65.1"
+    "request": "~2.65.0"
   },
   "scripts": {
     "download": "node app.js"
