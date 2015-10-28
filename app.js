@@ -1,4 +1,4 @@
-// Copyright 2010-2012 Mikeal Rogers
+// Copyright 2015 qL.b
 //
 //    Licensed under MIT License
 //    Check LICENSE file for more info
