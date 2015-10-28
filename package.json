@@ -1,0 +1,33 @@
+{
+  "name": "downloadcloudinaryimages",
+  "description": "Simple NodeJS script to download all images from cloudinary image hosting platform.",
+  "tags": [
+    "nodejs",
+    "simple",
+    "util",
+    "utility",
+    "cloudinary"
+  ],
+  "version": "1.0.0",
+  "author": "qL.b <qL.b@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qLb/downloadcloudinaryimages"
+  },
+  "bugs": {
+    "url": "http://github.com/qLb/downloadcloudinaryimages/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "main": "app.js",
+  "dependencies": {
+    "request": "~2.65.1"
+  },
+  "scripts": {
+    "download": "node app.js"
+  },
+  "devDependencies": {   
+  }
+}
