@@ -11,4 +11,4 @@ To download all images from our cloudinary image hosting platform we need to pro
 Just run: ```node app.js``` :)
 
 cheers,
-qL.b
+**qL.b**
