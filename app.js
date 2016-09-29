@@ -35,7 +35,7 @@ var download = function(){
   });
 };
 
-fs.readFile('data3.json', 'utf8', function (err, data) {
+fs.readFile('data.json', 'utf8', function (err, data) {
 
   if (err) throw err;
   obj = JSON.parse(data);
