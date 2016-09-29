@@ -13,30 +13,33 @@
 
 var fs = require('fs'),
     obj,
-    request = require('request');
+    request = require('request'),
+    n = 0,
+    totalObj = 0;
 
-var download = function(uri, filename, callback){
-  request.head(uri, function(err, res, body){
+var download = function(){
+  // stop the download if reached the total number of files
+  if (n >= totalObj) return;
+
+  var url = obj.resources[n].url;
+  var secure_url = obj.resources[n].secure_url;
+  var filename = obj.resources[n].public_id.replace(/\//g, '_')+'.'+obj.resources[n].format;
+
+  request.head(url, function(err, res, body){
     console.log('content-type:', res.headers['content-type']);
     console.log('content-length:', res.headers['content-length']);
 
-    request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    // increase the n to download the next file on the next iteration
+    n++;
+    request(url).pipe(fs.createWriteStream('./images/'+filename)).on('close', download);
   });
 };
 
 fs.readFile('data.json', 'utf8', function (err, data) {
-  
+
   if (err) throw err;
   obj = JSON.parse(data);
+  totalObj = obj.resources.length;
 
-  for (var i = obj.resources.length - 1; i >= 0; i--) {
-    var url = obj.resources[i].url;
-    var secure_url = obj.resources[i].secure_url;
-    var filename = obj.resources[i].public_id.replace(/\//g, '_')+'.'+obj.resources[i].format;
-  
-    download(url, filename, function(){
-      console.log('done!')
-    });
-  };
-
+  download();
 });
